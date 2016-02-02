@@ -14,16 +14,15 @@ dir_cli varchar(250),
 constraint pk_cli primary key (id_cli)
 );
 
-
 create table d_fac(
 rfc_dfac varchar(20),
 nom_dfac varchar(100),
 dir_dfac varchar (300),
 lug_dfac varchar (300),
-id_cli1 int,
+id_cli5 int,
 
 constraint pk_dfac primary key (rfc_dfac),
-constraint fk_dfac foreign key (id_cli1) references cliente(id_cli)
+constraint fk_dfac foreign key (id_cli5) references cliente(id_cli)
 );
 
 create table tipo_prod(
@@ -91,7 +90,6 @@ constraint fk_crep foreign key (id_cli3) references cliente(id_cli)
 
 );
 
-
 create table factura(
 id_fac int auto_increment,
 fecha_fac datetime,
@@ -105,9 +103,10 @@ constraint fk_cfac foreign key (id_cli4) references cliente(id_cli)
 );
 
 create table ped_prod(
-id_ped1 int,
+id_ped1 int auto_increment,
 id_prod1 int,
 cantidad_prod smallint,
 constraint fk_peped foreign key (id_ped1) references pedido(id_ped),
 constraint fk_prped foreign key (id_prod1) references producto(id_prod)
 );
+
